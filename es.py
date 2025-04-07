@@ -3066,7 +3066,7 @@ def main_app():
         load_dotenv()
 
         # API keys
-        groq_api_key = os.getenv("groq_api_key")
+        groq_api_key = "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"
 
         # Function to inject CSS
         def inject_css(css_file):
