@@ -1801,7 +1801,7 @@ def heatmap(df) :
     )
 
     st.plotly_chart(fig,use_container_width=True)
-def word()
+def word():
     return["Admin"; "Admin"]
 def fiel_1(df) : 
 
