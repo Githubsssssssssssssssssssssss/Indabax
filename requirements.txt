@@ -1,0 +1,26 @@
+# Explicitly include streamlit-extras
+streamlit-extras
+
+# Core Streamlit
+streamlit
+
+# Data Manipulation
+pandas
+numpy
+openpyxl
+geopandas
+
+# Image Processing
+Pillow
+
+# Mapping and Geospatial
+folium
+streamlit-folium
+geopy
+
+# Visualization Libraries
+plotly
+matplotlib
+streamlit-echarts
+pyecharts
+wordcloud

@@ -1,0 +1,49 @@
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+}
+
+.query-box {
+    margin-top: 1rem;
+    font-size: 16px;
+    float: right;
+    border: 2px solid;
+    padding: .7rem 1rem .1rem;
+    border-radius: 1rem;
+    position: relative;
+    
+}
+
+.response-box {
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 15px;
+    padding: .5rem 1rem;
+    border-radius: 1rem;
+    border: 2px solid;
+
+}
+
+/* History panel styling */
+.history-panel {
+    flex: 1;
+    padding: 20px;
+    border-left: 2px solid #f0f0f0;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.query-box .edit-button {
+    position: absolute;
+    margin-top: 2rem;
+    right: 25px;
+    font-size: 12px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #007bff;
+}
+
+
