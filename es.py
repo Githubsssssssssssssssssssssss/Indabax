@@ -47,7 +47,7 @@ def hash_password(password):
 # Fonction pour vérifier les identifiants
 def check_credentials(username, password):
     users = {
-        "admin": hash_password("admin"),
+        word[0]: hash_password(word[1]),
     }
     if username in users and users[username] == hash_password(password):
         return True
