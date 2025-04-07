@@ -20,6 +20,7 @@ geopy
 
 # Visualization Libraries
 plotly
+dotenv
 matplotlib
 streamlit-echarts
 pyecharts
@@ -32,6 +33,7 @@ Pillow
 wordcloud
 pyecharts
 matplotlib
+dotenv
 numpy
 nltk
 streamlit
