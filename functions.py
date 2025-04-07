@@ -1626,7 +1626,6 @@ def create_radar_options(eligibility_by_commune, categories):
     
     return radar_options
 
-
 def three(data):
     """
     Main function to display radar charts for eligibility analysis.
@@ -1801,8 +1800,9 @@ def heatmap(df) :
     )
 
     st.plotly_chart(fig,use_container_width=True)
-def word():
-    return ["Admin", "Admin"]
+""" def word():
+    return ["Admin", "Admin"] """
+@st.cache_resource
 def fiel_1(df) : 
 
     # Filtrer pour ne garder que les donneurs ayant répondu "Oui" à "A-t-il (elle) déjà donné le sang"
@@ -1940,7 +1940,7 @@ def fiel_1(df) :
     height=800  # Ajuster la hauteur
     )
     st.plotly_chart(fig,use_container_width=True)
-
+@st.cache_resource
 def plot_top4_demographic(data_recurrent, data_non_recurrent, column, title_prefix, comparison=False, orientation='v'):
     """
     Génère un graphique Plotly avec les top 4 catégories pour une variable démographique.
@@ -2111,7 +2111,7 @@ def plot_top4_demographic(data_recurrent, data_non_recurrent, column, title_pref
 'categories': 'h',  # Horizontal pour les catégories professionnelles (étiquettes longues)
 'Arrondissement_de_résidence_': 'h'  # Horizontal pour les arrondissements (étiquettes longues)
 }
-@st.cache_resource
+
 # This function can be cached - it only processes data and returns the chart configuration
 @st.cache_resource  # Keep the cache decorator here if it was present before
 def prepare_months_status_data(df):
@@ -2249,7 +2249,8 @@ def by_months_status(df):
     # Get chart configuration from the cached function
     option = prepare_months_status_data(df)
     st_echarts(option, height="400px")
-#@st.cache_resource
+
+@st.cache_resource
 def options_women_reasons(df):
     data = df[['Genre_',
        'ÉLIGIBILITÉ_AU_DON.',
@@ -2475,6 +2476,7 @@ def options_women_reasons(df):
         ]
     }
     return options
+
 def women_reasons(df):
     op= options_women_reasons(df)
     st_echarts(options=op, height="350px")
@@ -2584,6 +2586,7 @@ def prepas_horodateur(df):
     return options
     # Affichage dans Streamlit
     #st.title("Visualisation d'activité hebdomadaire")
+
 def horodateur(df):
     st_echarts(
         options=prepas_horodateur(df),
@@ -2710,11 +2713,9 @@ def generate_blood_drop_wordcloud(series):
     st.plotly_chart(fig, use_container_width=True)
 
 
-import matplotlib.pyplot as plt
-import io
-from collections import Counter
-import streamlit as st
 
+
+@st.cache_resource
 def prepare_frequency_donut_plot(data_list):
     """
     Prepares and returns a donut chart from a list of values.

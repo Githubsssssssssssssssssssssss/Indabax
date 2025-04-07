@@ -35,11 +35,17 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded"
 )
-def load_data1():
-        if "uploaded_data" in st.session_state:
-            return st.session_state["uploaded_data"]  # Load validated data
-        else:
-            return pd.read_excel('last.xlsx')  # Load default file if no uploaded data
+
+def load_data1(data):
+    return pd.read_excel(data)  # Load default file if no uploaded data
+
+@st.cache_data
+def load_shapefile(shapefile_path, simplify_tolerance=None):
+    gdf = gpd.read_file(shapefile_path)
+    if simplify_tolerance is not None:
+        gdf.geometry = gdf.geometry.simplify(simplify_tolerance)
+    return gdf
+
 
 def hash_password(password):
     return hashlib.sha256(password.encode()).hexdigest()
@@ -107,7 +113,6 @@ def login_form():
                 st.session_state["authenticated"] = True
                 st.session_state["username"] = username
                 st.success("Connexion réussie! valider à nouveau pour confirmer la connexion")
-                load_data1()
                 st.rerun()
             else:
                 st.error("Nom d'utilisateur ou mot de passe incorrect")
@@ -178,12 +183,6 @@ def main_app():
     #_____________________Function_____________________________________
 
     # Cache pour les shapefiles avec simplification de géométrie
-    @st.cache_resource
-    def load_shapefile(shapefile_path, simplify_tolerance=None):
-        gdf = gpd.read_file(shapefile_path)
-        if simplify_tolerance is not None:
-            gdf.geometry = gdf.geometry.simplify(simplify_tolerance)
-        return gdf
 
 
     # Fonction pour charger les données avec la date de modification comme hash
@@ -207,6 +206,7 @@ def main_app():
 
 
     #________________________
+
 
 
     def get_hierarchical_data():
@@ -3452,7 +3452,9 @@ def file_upload_page():
             if uploaded_file.name.endswith('.csv'):
                 df = pd.read_csv(uploaded_file)
             else:
-                df = pd.read_excel(uploaded_file)
+                df = load_data1(uploaded_file)
+                load_shapefile("gadm41_CMR_0.shp", simplify_tolerance=0.01)
+
             # Store the DataFrame in session state but do NOT proceed until validated
             st.session_state["uploaded_data"] = df
             st.session_state["file_uploaded"] = True  # File is uploaded
