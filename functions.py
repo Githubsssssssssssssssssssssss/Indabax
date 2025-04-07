@@ -1802,7 +1802,7 @@ def heatmap(df) :
 
     st.plotly_chart(fig,use_container_width=True)
 def word():
-    return["Admin"; "Admin"]
+    return ["Admin", "Admin"]
 def fiel_1(df) : 
 
     # Filtrer pour ne garder que les donneurs ayant répondu "Oui" à "A-t-il (elle) déjà donné le sang"
