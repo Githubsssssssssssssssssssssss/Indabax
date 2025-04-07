@@ -32,6 +32,8 @@ streamlit-echarts
 Pillow
 wordcloud
 python-docx
+groq
+transformers
 pyecharts
 matplotlib
 dotenv
