@@ -1618,7 +1618,7 @@ def main_app():
             st.image("OIP.jpeg", width=500)
                     
     elif selected_item == "Home":
-        site_url = "https://githubsssssssssssssssssssssss-challenge-es-zdqvvx.streamlit.app/"
+        site_url = "https://githubsssssssssssssssssssssss-indabax-es-punf9n.streamlit.app/"
         qr = qrcode.QRCode(version=1, box_size=10, border=4)
         qr.add_data(site_url)
         qr.make(fit=True)
