@@ -3447,6 +3447,16 @@ def file_upload_page():
         st.image("OIP.jpeg", width=400)
     st.title("Upload a File")
     uploaded_file = st.file_uploader("Choose a file", type=["csv", "xls", "xlsx"])
+    if uploaded_file is None:
+            # No file uploaded: use default Excel file
+            try:
+                with open("last.xlsx", "rb") as f:
+                    uploaded_file = io.BytesIO(f.read())
+                    uploaded_file.name = "last.xlsx"
+                st.info("No file uploaded. Using default file: `last.xlsx`.")
+            except FileNotFoundError:
+                st.error("Default file `last.xlsx` not found.")
+                return  # Stop here if there's no default file
     if uploaded_file is not None:
         try:
             if uploaded_file.name.endswith('.csv'):
@@ -3468,7 +3478,7 @@ def file_upload_page():
 
         except Exception as e:
             st.error(f"Error reading the file: {e}")
-
+        
 
 # Fonction principale pour contrôler le flux de l'application
 # Exécuter l'application
