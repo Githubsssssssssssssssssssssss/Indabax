@@ -2826,9 +2826,9 @@ def main_app():
                 m1 = folium.Map(location=[7.87, 11], zoom_start=6, control_scale=True,height=901)
 
                 folium.TileLayer(
-                    tiles="CartoDB positron",
+                    tiles="CartoDB Satellite",
                     attr="CartoDB",
-                    name="CartoDB Positron",
+                    name="CartoDB Satellite",
                     overlay=False,
                     control=True
                 ).add_to(m1)
