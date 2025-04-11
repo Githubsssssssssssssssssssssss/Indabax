@@ -89,8 +89,6 @@ def login_form():
         <style>
             .block-container {{
                 padding-top: 3.5rem;
-                padding-left: 10%;
-                padding-right: 10%rem;
                 position: relative;
                 z-index: 1;
             }}
