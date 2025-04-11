@@ -3431,8 +3431,6 @@ def file_upload_page():
         <style>
             .block-container {{
                 padding-top: 2.5rem;
-                padding-left: 25rem;
-                padding-right: 25rem;
                 position: relative;
                 z-index: 1;
             }}
