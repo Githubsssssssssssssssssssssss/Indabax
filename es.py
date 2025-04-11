@@ -89,8 +89,8 @@ def login_form():
         <style>
             .block-container {{
                 padding-top: 3.5rem;
-                padding-left: 25rem;
-                padding-right: 25rem;
+                padding-left: 10%;
+                padding-right: 10%rem;
                 position: relative;
                 z-index: 1;
             }}
@@ -2826,9 +2826,9 @@ def main_app():
                 m1 = folium.Map(location=[7.87, 11], zoom_start=6, control_scale=True,height=901)
 
                 folium.TileLayer(
-                    tiles="CartoDB Satellite",
+                    tiles="CartoDB positron ",
                     attr="CartoDB",
-                    name="CartoDB Satellite",
+                    name="CartoDB positron ",
                     overlay=False,
                     control=True
                 ).add_to(m1)
